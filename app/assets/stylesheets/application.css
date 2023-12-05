@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+.table-row {
+  max-height: 150px;
+}

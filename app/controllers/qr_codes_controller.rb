@@ -1,13 +1,14 @@
 class QrCodesController < ApplicationController
-  before_action :set_qr_code, only: [:show, :edit, :update, :destroy]
+  before_action :set_qr_code, only: [:edit, :update, :destroy]
 
   # GET /qr_codes
   def index
     @qr_codes = QrCode.all
   end
 
-  # GET /qr_codes/1
+  # GET /:hex
   def show
+    @qr_code = QrCode.find_by!(external_id: params[:external_id])
     @qr_code.scans += 1
     @qr_code.save
     redirect_to @qr_code.data
@@ -27,7 +28,7 @@ class QrCodesController < ApplicationController
     @qr_code = QrCode.new(qr_code_params)
 
     if @qr_code.save
-      redirect_to @qr_code, notice: 'Qr code was successfully created.'
+      redirect_to qr_codes_url, notice: 'Qr code was successfully created.'
     else
       render :new
     end
@@ -36,7 +37,7 @@ class QrCodesController < ApplicationController
   # PATCH/PUT /qr_codes/1
   def update
     if @qr_code.update(qr_code_params)
-      redirect_to @qr_code, notice: 'Qr code was successfully updated.'
+      redirect_to qr_codes_url, notice: 'Qr code was successfully updated.'
     else
       render :edit
     end

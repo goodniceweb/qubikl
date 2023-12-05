@@ -14,6 +14,7 @@
     <tr>
       <th>QR Code</th>
       <th>Link</th>
+      <th>External ID</th>
       <th>Scans</th>
       <th>Actions</th>
     </tr>
@@ -22,8 +23,9 @@
   <tbody>
     <% @qr_codes.each do |qr_code| %>
       <tr class="table-row">
-        <td><%= RQRCode::QRCode.new(qr_code_url(qr_code)).as_svg.html_safe %></td>
+        <td><%= RQRCode::QRCode.new(qr_code_link_url(qr_code.external_id)).as_svg.html_safe %></td>
         <td><%= link_to "Go to Destination", qr_code.data, class: "button is-info", target: "_blank" %></td>
+        <td><%= qr_code.external_id %></td>
         <td><%= qr_code.scans %></td>
         <td>
           <div class="buttons has-addons">

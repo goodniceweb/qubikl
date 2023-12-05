@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_02_13_090753) do
 
   create_table "qr_codes", force: :cascade do |t|
+    t.string "external_id"
     t.string "data"
     t.integer "scans"
     t.datetime "created_at", precision: 6, null: false

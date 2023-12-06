@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_13_090753) do
-
+ActiveRecord::Schema[7.1].define(version: 2021_02_13_090753) do
   create_table "qr_codes", force: :cascade do |t|
     t.string "external_id"
     t.string "data"
+    t.string "png"
+    t.string "svg"
     t.integer "scans"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

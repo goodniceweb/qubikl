@@ -9,13 +9,13 @@ gem 'sass-rails', '>= 6'
 gem 'sqlite3', '~> 1.4'
 gem 'webpacker', '~> 5.0'
 
-# gem 'carrierwave', '~> 3.0.3'
+gem 'carrierwave', '~> 3.0.3'
 gem 'rqrcode'
 
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails'
 end
 
 group :development do

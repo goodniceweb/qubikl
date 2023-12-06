@@ -1,6 +1,6 @@
 require "test_helper"
 
-class QrCodesControllerTest < ActionDispatch::IntegrationTest
+class QRCodesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @qr_code = qr_codes(:one)
   end
@@ -16,11 +16,11 @@ class QrCodesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create qr_code" do
-    assert_difference('QrCode.count') do
+    assert_difference('QRCode.count') do
       post qr_codes_url, params: { qr_code: {  } }
     end
 
-    assert_redirected_to qr_code_url(QrCode.last)
+    assert_redirected_to qr_code_url(QRCode.last)
   end
 
   test "should show qr_code" do
@@ -39,7 +39,7 @@ class QrCodesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy qr_code" do
-    assert_difference('QrCode.count', -1) do
+    assert_difference('QRCode.count', -1) do
       delete qr_code_url(@qr_code)
     end
 

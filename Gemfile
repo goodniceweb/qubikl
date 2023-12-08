@@ -11,6 +11,10 @@ gem 'webpacker', '~> 5.0'
 
 gem 'carrierwave', '~> 3.0.3'
 gem 'rqrcode'
+gem 'jsonapi-rails'
+gem 'swagger-blocks'
+gem 'swagger-ui_rails'
+gem 'rack-cors'
 
 gem 'bootsnap', '>= 1.4.4', require: false
 

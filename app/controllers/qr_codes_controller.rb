@@ -8,10 +8,10 @@ class QRCodesController < ApplicationController
 
   # GET /:hex
   def show
-    @qr_code = QRCode.find_by!(external_id: params[:external_id])
-    @qr_code.scans += 1
+    @qr_code = QRCode.find_by!(path_alias: params[:path_alias])
+    @qr_code.visits_amount += 1
     @qr_code.save
-    redirect_to @qr_code.data
+    redirect_to @qr_code.destination
   end
 
   # GET /qr_codes/new
@@ -60,7 +60,7 @@ class QRCodesController < ApplicationController
   def qr_code_params
     domain = extract_domain(params[:qr_code][:domain])
     params[:qr_code][:domain] = domain
-    params.fetch(:qr_code, {}).permit(:data, :domain)
+    params.fetch(:qr_code, {}).permit(:destination, :domain)
   end
 
   def extract_domain(domain_param)

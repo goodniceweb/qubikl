@@ -1,28 +1,26 @@
 class QRCode < ApplicationRecord
-  attribute :scans, :integer, default: 0
-
   mount_uploader :svg, SvgQRUploader
   mount_uploader :png, PngQRUploader
 
-  validates :data, presence: true
+  validates :destination, presence: true
 
-  before_save :ensure_external_id
+  before_save :ensure_path_alias
   after_create :ensure_svg
   after_create :ensure_png
 
   private
 
-  def ensure_external_id
-    return if external_id.present?
+  def ensure_path_alias
+    return if path_alias.present?
 
-    potential_external_id = SecureRandom.hex(5)
-    potential_external_id = SecureRandom.hex(5) while self.class.exists?(external_id: potential_external_id)
+    potential_path_alias = SecureRandom.hex(5)
+    potential_path_alias = SecureRandom.hex(5) while self.class.exists?(path_alias: potential_path_alias)
 
-    self.external_id = potential_external_id
+    self.path_alias = potential_path_alias
   end
 
   def store_file(type, content)
-    tempfile = Tempfile.new(["qr_code-#{external_id}", ".#{type}"])
+    tempfile = Tempfile.new(["qr_code-#{path_alias}", ".#{type}"])
     tempfile.binmode
     tempfile.write(content.public_send(:"as_#{type}"))
     tempfile.close
@@ -52,7 +50,7 @@ class QRCode < ApplicationRecord
   end
 
   def build_link
-    relative_path = Rails.application.routes.url_helpers.qr_code_link_path(external_id)
+    relative_path = Rails.application.routes.url_helpers.qr_code_link_path(path_alias)
     "#{domain}#{relative_path}"
   end
 end

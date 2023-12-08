@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   scope '/a/' do
     resources :qr_codes, except: [:show]
   end
-  get ':external_id', to: 'qr_codes#show', as: "qr_code_link"
+  get ':path_alias', to: 'qr_codes#show', as: "qr_code_link"
 
   namespace :api do
     namespace :v1 do

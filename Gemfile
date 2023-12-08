@@ -12,6 +12,7 @@ gem 'webpacker', '~> 5.0'
 gem 'carrierwave', '~> 3.0.3'
 gem 'rqrcode'
 gem 'jsonapi-rails'
+gem 'stimulus-rails'
 gem 'swagger-blocks'
 gem 'swagger-ui_rails'
 gem 'rack-cors'
@@ -37,3 +38,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "importmap-rails", "~> 1.2"

@@ -50,13 +50,22 @@ class QRCodesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_qr_code
-      @qr_code = QRCode.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def qr_code_params
-      params.fetch(:qr_code, {}).permit(:data)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_qr_code
+    @qr_code = QRCode.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def qr_code_params
+    domain = extract_domain(params[:qr_code][:domain])
+    params[:qr_code][:domain] = domain
+    params.fetch(:qr_code, {}).permit(:data, :domain)
+  end
+
+  def extract_domain(domain_param)
+    return request.base_url unless domain_param.is_a?(Array)
+
+    domain_param.reject(&:blank?).last
+  end
 end

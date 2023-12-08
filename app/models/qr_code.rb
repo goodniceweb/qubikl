@@ -4,6 +4,8 @@ class QRCode < ApplicationRecord
   mount_uploader :svg, SvgQRUploader
   mount_uploader :png, PngQRUploader
 
+  validates :data, presence: true
+
   before_save :ensure_external_id
   after_create :ensure_svg
   after_create :ensure_png
@@ -50,6 +52,7 @@ class QRCode < ApplicationRecord
   end
 
   def build_link
-    Rails.application.routes.url_helpers.qr_code_link_url(external_id)
+    relative_path = Rails.application.routes.url_helpers.qr_code_link_path(external_id)
+    "#{domain}#{relative_path}"
   end
 end

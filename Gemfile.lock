@@ -116,6 +116,10 @@ GEM
     image_processing (1.12.2)
       mini_magick (>= 4.9.5, < 5)
       ruby-vips (>= 2.0.17, < 3)
+    importmap-rails (1.2.3)
+      actionpack (>= 6.0.0)
+      activesupport (>= 6.0.0)
+      railties (>= 6.0.0)
     io-console (0.6.0)
     irb (1.10.1)
       rdoc
@@ -160,7 +164,11 @@ GEM
     net-smtp (0.4.0)
       net-protocol
     nio4r (2.6.1)
+    nokogiri (1.15.5-aarch64-linux)
+      racc (~> 1.4)
     nokogiri (1.15.5-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.15.5-x86_64-linux)
       racc (~> 1.4)
     pry (0.14.2)
       coderay (~> 1.1)
@@ -257,8 +265,12 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    sqlite3 (1.6.9-aarch64-linux)
     sqlite3 (1.6.9-arm64-darwin)
+    sqlite3 (1.6.9-x86_64-linux)
     ssrf_filter (1.1.2)
+    stimulus-rails (1.2.2)
+      railties (>= 6.0.0)
     stringio (3.1.0)
     swagger-blocks (3.0.0)
     swagger-ui_rails (0.1.7)
@@ -291,12 +303,15 @@ GEM
     zeitwerk (2.6.12)
 
 PLATFORMS
+  aarch64-linux
   arm64-darwin-22
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap (>= 1.4.4)
   capybara (>= 3.26)
   carrierwave (~> 3.0.3)
+  importmap-rails (~> 1.2)
   jsonapi-rails
   listen (~> 3.3)
   pry-rails
@@ -309,6 +324,7 @@ DEPENDENCIES
   selenium-webdriver
   spring
   sqlite3 (~> 1.4)
+  stimulus-rails
   swagger-blocks
   swagger-ui_rails
   tzinfo-data

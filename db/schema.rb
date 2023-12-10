@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2021_02_13_090753) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_08_193654) do
   create_table "qr_codes", force: :cascade do |t|
     t.string "path_alias"
     t.string "destination"
@@ -22,4 +22,16 @@ ActiveRecord::Schema[7.1].define(version: 2021_02_13_090753) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "visits", force: :cascade do |t|
+    t.integer "qr_code_id", null: false
+    t.string "country"
+    t.string "referrer"
+    t.string "device"
+    t.string "os"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["qr_code_id"], name: "index_visits_on_qr_code_id"
+  end
+
+  add_foreign_key "visits", "qr_codes"
 end

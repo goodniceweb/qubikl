@@ -99,18 +99,31 @@ GEM
       image_processing (~> 1.1)
       marcel (~> 1.0.0)
       ssrf_filter (~> 1.0)
+    chartkick (5.0.4)
     chunky_png (1.4.0)
     coderay (1.1.3)
     concurrent-ruby (1.2.2)
     connection_pool (2.4.1)
     crass (1.0.6)
     date (3.3.4)
+    domain_name (0.6.20231109)
     drb (2.2.0)
       ruby2_keywords
     erubi (1.12.0)
     ffi (1.16.3)
+    ffi-compiler (1.0.1)
+      ffi (>= 1.0.0)
+      rake
     globalid (1.2.1)
       activesupport (>= 6.1)
+    http (5.1.1)
+      addressable (~> 2.8)
+      http-cookie (~> 1.0)
+      http-form_data (~> 2.2)
+      llhttp-ffi (~> 0.4.0)
+    http-cookie (1.0.5)
+      domain_name (~> 0.5)
+    http-form_data (2.3.0)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.2)
@@ -138,6 +151,9 @@ GEM
     listen (3.8.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
+    llhttp-ffi (0.4.0)
+      ffi-compiler (~> 1.0)
+      rake (~> 13.0)
     loofah (2.22.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -148,6 +164,11 @@ GEM
       net-smtp
     marcel (1.0.2)
     matrix (0.4.2)
+    maxmind-db (1.2.0)
+    maxmind-geoip2 (1.2.0)
+      connection_pool (~> 2.2)
+      http (>= 4.3, < 6.0)
+      maxmind-db (~> 1.2)
     method_source (1.0.0)
     mini_magick (4.12.0)
     mini_mime (1.1.5)
@@ -230,6 +251,8 @@ GEM
       ffi (~> 1.0)
     rdoc (6.6.1)
       psych (>= 4.0.0)
+    redis-client (0.19.0)
+      connection_pool
     regexp_parser (2.8.2)
     reline (0.4.1)
       io-console (~> 0.5)
@@ -257,6 +280,11 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     semantic_range (3.0.0)
+    sidekiq (7.2.0)
+      concurrent-ruby (< 2)
+      connection_pool (>= 2.3.0)
+      rack (>= 2.2.4)
+      redis-client (>= 0.14.0)
     spring (4.1.3)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
@@ -279,6 +307,7 @@ GEM
     timeout (0.4.1)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    user_agent_parser (2.16.0)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -311,9 +340,11 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   capybara (>= 3.26)
   carrierwave (~> 3.0.3)
+  chartkick
   importmap-rails (~> 1.2)
   jsonapi-rails
   listen (~> 3.3)
+  maxmind-geoip2
   pry-rails
   puma (~> 5.0)
   rack-cors
@@ -322,12 +353,14 @@ DEPENDENCIES
   rqrcode
   sass-rails (>= 6)
   selenium-webdriver
+  sidekiq
   spring
   sqlite3 (~> 1.4)
   stimulus-rails
   swagger-blocks
   swagger-ui_rails
   tzinfo-data
+  user_agent_parser
   web-console (>= 4.1.0)
   webdrivers
   webpacker (~> 5.0)

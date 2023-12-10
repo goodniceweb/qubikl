@@ -25,10 +25,11 @@
       <tr class="table-row">
         <td><%= image_tag qr_code.png.url %></td>
         <td><%= link_to "Go to Destination", qr_code.destination, class: "button is-info", target: "_blank" %></td>
-        <td><%= qr_code.path_alias %></td>
+        <td><%= Rails.env.development? ? link_to(qr_code.path_alias, qr_code.tracking_link) : qr_code.path_alias  %></td>
         <td><%= qr_code.visits_amount %></td>
         <td>
           <div class="buttons has-addons">
+            <%= link_to 'Stats', qr_code, class: 'button is-warning' %>
             <%= link_to 'Destroy', qr_code, class: 'button is-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
           </div>
         </td>

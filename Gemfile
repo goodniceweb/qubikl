@@ -9,13 +9,17 @@ gem 'sass-rails', '>= 6'
 gem 'sqlite3', '~> 1.4'
 gem 'webpacker', '~> 5.0'
 
+gem 'chartkick'
 gem 'carrierwave', '~> 3.0.3'
-gem 'rqrcode'
 gem 'jsonapi-rails'
+gem 'maxmind-geoip2'
+gem 'rack-cors'
+gem 'rqrcode'
+gem 'sidekiq'
 gem 'stimulus-rails'
 gem 'swagger-blocks'
 gem 'swagger-ui_rails'
-gem 'rack-cors'
+gem 'user_agent_parser'
 
 gem 'bootsnap', '>= 1.4.4', require: false
 

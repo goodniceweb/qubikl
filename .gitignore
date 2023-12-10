@@ -17,6 +17,10 @@
 !/log/.keep
 !/tmp/.keep
 
+# Ignore geoip database
+/vendor/data/*
+!/vendor/data/.keep
+
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
 !/tmp/pids/

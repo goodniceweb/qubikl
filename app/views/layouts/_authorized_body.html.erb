@@ -1,0 +1,11 @@
+<div class="columns">
+  <div class="column pl-5 pt-6">
+    <%= render partial: 'layouts/menu' %>
+  </div>
+  <div class="column is-three-quarters pr-5 pt-6">
+    <%= render partial: 'layouts/flash_messages' %>
+    <div class="content">
+      <%= yield %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<% if notice.present? %>
+  <div class="message is-info">
+    <p class="message-body"><%= notice %></p>
+  </div>
+<% end %>
+<% if alert.present? %>
+  <div class="message is-warning">
+    <p class="message-body"><%= alert %></p>
+  </div>
+<% end %>

@@ -15,13 +15,10 @@
   </head>
 
   <body>
-    <div class="columns">
-      <div class="column pl-5 pt-6">
-        <%= render partial: 'layouts/menu' %>
-      </div>
-      <div class="column is-three-quarters pr-5 pt-6">
-        <%= yield %>
-      </div>
-    </div>
+    <% if current_user %>
+      <%= render partial: 'layouts/authorized_body' %>
+    <% else %>
+      <%= render partial: 'layouts/unauthorized_body' %>
+    <% end %>
   </body>
 </html>

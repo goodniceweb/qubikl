@@ -1,0 +1,106 @@
+ru:
+  activerecord:
+    models:
+      qr_code:
+        one: "QR-код"
+        other: "QR-коды"
+      user_domain:
+        one: "Домен"
+        other: "Домены"
+    attributes:
+      qr_code:
+        destination: "Назначение"
+        path_alias: "Псевдоним пути"
+        domain: "Домен"
+        png: "PNG"
+        svg: "SVG"
+        visits_amount: "Количество посещений"
+        user_domain_id: "ID домена пользователя"
+    errors:
+      models:
+        qr_code:
+          attributes:
+            destination:
+              blank: "не может быть пустым"
+            path_alias:
+              blank: "не может быть пустым"
+              taken: "уже был взят"
+        user_domain:
+          attributes:
+            name:
+              blank: "не может быть пустым"
+  controllers:
+    qr_codes:
+      create:
+        success: "QR-код успешно создан."
+      update:
+        success: "QR-код успешно обновлен."
+      destroy:
+        success: "QR-код успешно удален."
+    user_domains:
+      create:
+        success: "Домен успешно создан."
+      update:
+        success: "Домен успешно обновлен."
+      destroy:
+        success: "Домен успешно удален."
+    users:
+      update:
+        success: "Пользователь успешно обновлен."
+        failed: "Пользователь не был обновлен."
+  views:
+    devise:
+      registrations:
+        edit: "Редактировать пользователя"
+        currently_waiting_confirmation: "Ожидание подтверждения для: %{unconfirmed_email}"
+        leave_blank: "оставьте пустым, если не хотите изменять"
+        minimum_password_length: "(минимум %{minimum_password_length} символов)"
+        current_password: "нам нужен ваш текущий пароль для подтверждения изменений"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        current_password: "Текущий пароль"
+        update: "Обновить"
+        cancel_account: "Отменить мой аккаунт"
+        unhappy: "Не довольны? %{registration_path}"
+        back: "Назад"
+        language: "Язык"
+    qr_codes:
+      your_link: "Ваша ссылка"
+      select_domain_or_add_new: "Выберите домен или добавьте новый"
+      close: "Закрыть"
+      add_custom_domain: "Добавить пользовательский домен"
+      select_this_domain: "Выбрать этот домен"
+      error: "Ошибка"
+      prohibited_saving_qr_code: "запрещено сохранять этот QR-код"
+      create_qr_code: "Создать QR-код"
+      editing_qr_code: "Редактирование QR-кода"
+      show: "Показать"
+      back: "Назад"
+      title: "Заголовок"
+      new_qr_code: "Новый QR-код"
+      link: "Ссылка"
+      path_alias: "Псевдоним пути"
+      visits: "Посещения"
+      actions: "Действия"
+      go_to_destination: "Перейти к назначению"
+      stats: "Статистика"
+      destroy: "Удалить"
+      qr_code: "QR-код"
+      edit: "Редактировать"
+      total: "Всего: %{count}"
+      points_to: "Указывает на"
+      with_link: "Со ссылкой"
+      copy_to_clipboard: "Скопировать в буфер обмена"
+      copied: "Скопировано!"
+      top_referrals: "Лучшие рефералы"
+      no_data: "Нет данных"
+      referral: "Реферал"
+      percentage: "Процент"
+      top_countries: "Лучшие страны"
+      country: "Страна"
+      copy: "Копировать"
+      breakdown_by_os: "Разбивка по ОС"
+      breakdown_by_device: "Разбивка по устройству"
+    stimulus:
+      # Добавьте здесь переводы для контроллеров Stimulus
+

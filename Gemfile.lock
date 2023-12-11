@@ -355,6 +355,7 @@ DEPENDENCIES
   carrierwave (~> 3.0.3)
   chartkick
   devise
+  i18n
   importmap-rails (~> 1.2)
   jsonapi-rails
   listen (~> 3.3)

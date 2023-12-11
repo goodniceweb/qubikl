@@ -1,20 +1,20 @@
 <div class="columns">
   <div class="column">
-    <h1 class="title">QR Codes</h1>
+    <h1 class="title"><%= t('views.qr_codes.title') %></h1>
   </div>
   <div class="column is-flex is-flex-direction-row-reverse">
-    <%= link_to 'New QR Code', new_qr_code_path, class: "button is-primary" %>
+    <%= link_to t('views.qr_codes.new_qr_code'), new_qr_code_path, class: "button is-primary" %>
   </div>
 </div>
 
 <table class="table">
   <thead>
     <tr>
-      <th>QR Code</th>
-      <th>Link</th>
-      <th>Path Alias</th>
-      <th>Visits</th>
-      <th>Actions</th>
+      <th><%= t('views.qr_codes.qr_code') %></th>
+      <th><%= t('views.qr_codes.link') %></th>
+      <th><%= t('views.qr_codes.path_alias') %></th>
+      <th><%= t('views.qr_codes.visits') %></th>
+      <th><%= t('views.qr_codes.actions') %></th>
     </tr>
   </thead>
 
@@ -22,13 +22,13 @@
     <% @qr_codes.each do |qr_code| %>
       <tr class="table-row">
         <td><%= image_tag qr_code.png.url %></td>
-        <td><%= link_to "Go to Destination", qr_code.destination, class: "button is-info", target: "_blank" %></td>
+        <td><%= link_to t('views.qr_codes.go_to_destination'), qr_code.destination, class: "button is-info", target: "_blank" %></td>
         <td><%= Rails.env.development? ? link_to(qr_code.path_alias, qr_code.tracking_link) : qr_code.path_alias  %></td>
         <td><%= qr_code.visits_amount %></td>
         <td>
           <div class="buttons has-addons">
-            <%= link_to 'Stats', qr_code, class: 'button is-warning' %>
-            <%= link_to 'Destroy', qr_code, class: 'button is-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to t('views.qr_codes.stats'), qr_code, class: 'button is-warning' %>
+            <%= link_to t('views.qr_codes.destroy'), qr_code, class: 'button is-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
           </div>
         </td>
       </tr>

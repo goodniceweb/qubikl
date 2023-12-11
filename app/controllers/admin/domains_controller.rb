@@ -1,8 +1,8 @@
 module Admin
-  class UserDomainsController < ::Admin::BaseController
+  class DomainsController < ::Admin::BaseController
     before_action :set_user_domain, only: [:show, :edit, :update, :destroy]
+    load_and_authorize_resource class: UserDomain.to_s
 
-    # GET /user_domains
     def index
       @user_domains = UserDomain.where(user_id: current_user.id).all
     end
@@ -25,7 +25,7 @@ module Admin
       @user_domain = UserDomain.new(user_domain_params)
 
       if @user_domain.save
-        redirect_to user_domains_url, notice: 'Domain was successfully created.'
+        redirect_to user_domains_url, notice: t('controllers.user_domains.create.success')
       else
         render :new
       end
@@ -34,7 +34,7 @@ module Admin
     # PATCH/PUT /user_domains/1
     def update
       if @user_domain.update(user_domain_params)
-        redirect_to user_domains_url, notice: 'Domain was successfully updated.'
+        redirect_to user_domains_url, notice: t('controllers.user_domains.update.success')
       else
         render :edit
       end
@@ -43,7 +43,7 @@ module Admin
     # DELETE /user_domains/1
     def destroy
       @user_domain.destroy
-      redirect_to user_domains_url, notice: 'Domain was successfully destroyed.'
+      redirect_to user_domains_url, notice: t('controllers.user_domains.destroy.success')
     end
 
     private

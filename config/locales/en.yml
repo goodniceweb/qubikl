@@ -1,33 +1,109 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      qr_code:
+        one: "QR Code"
+        other: "QR Codes"
+      user_domain:
+        one: "Domain"
+        other: "Domains"
+    attributes:
+      qr_code:
+        destination: "Destination"
+        path_alias: "Path Alias"
+        domain: "Domain"
+        png: "PNG"
+        svg: "SVG"
+        visits_amount: "Visits Amount"
+        user_domain_id: "User Domain ID"
+      user_domain:
+        user_id: "User ID"
+        name: "Name"
+    errors:
+      models:
+        qr_code:
+          attributes:
+            destination:
+              blank: "can't be blank"
+            path_alias:
+              blank: "can't be blank"
+              taken: "has already been taken"
+        user_domain:
+          attributes:
+            name:
+              blank: "can't be blank"
+  controllers:
+    qr_codes:
+      create:
+        success: "QR Code was successfully created."
+      update:
+        success: "QR Code was successfully updated."
+      destroy:
+        success: "QR Code was successfully destroyed."
+    user_domains:
+      create:
+        success: "Domain was successfully created."
+      update:
+        success: "Domain was successfully updated."
+      destroy:
+        success: "Domain was successfully destroyed."
+    users:
+      update:
+        success: "User was successfully updated."
+        failed: "User was not updated."
+  views:
+    devise:
+      registrations:
+        edit: "Edit User"
+        currently_waiting_confirmation: "Currently waiting confirmation for: %{unconfirmed_email}"
+        leave_blank: "leave blank if you don't want to change it"
+        minimum_password_length: "(minimum is %{minimum_password_length} characters)"
+        current_password: "we need your current password to confirm your changes"
+        password: "Password"
+        password_confirmation: "Password Confirmation"
+        current_password: "Current Password"
+        update: "Update"
+        cancel_account: "Cancel my account"
+        unhappy: "Unhappy? %{registration_path}"
+        back: "Back"
+        language: "Language"
+    qr_codes:
+      your_link: "Your Link"
+      select_domain_or_add_new: "Select Domain or Add New"
+      close: "Close"
+      add_custom_domain: "Add Custom Domain"
+      select_this_domain: "Select This Domain"
+      error: "Error"
+      prohibited_saving_qr_code: "prohibited this QR Code from being saved"
+      create_qr_code: "Create QR Code"
+      editing_qr_code: "Editing QR Code"
+      show: "Show"
+      back: "Back"
+      title: "Title"
+      new_qr_code: "New QR Code"
+      link: "Link"
+      path_alias: "Path Alias"
+      visits: "Visits"
+      actions: "Actions"
+      go_to_destination: "Go to Destination"
+      stats: "Stats"
+      destroy: "Destroy"
+      qr_code: "QR Code"
+      edit: "Edit"
+      total: "Total: %{count}"
+      points_to: "Points to"
+      with_link: "With link"
+      copy_to_clipboard: "Copy to Clipboard"
+      copied: "Copied!"
+      top_referrals: "Top Referrals"
+      no_data: "No data"
+      referral: "Referral"
+      percentage: "Percentage"
+      top_countries: "Top Countries"
+      country: "Country"
+      copy: "Copy"
+      breakdown_by_os: "Breakdown by OS"
+      breakdown_by_device: "Breakdown by Device"
+    # Add your view translations here
+  # stimulus:
+    # Add your Stimulus controller translations here

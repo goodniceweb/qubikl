@@ -1,15 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users
   root 'admin/qr_codes#index'
+  devise_for :users
   scope '/a/', module: 'admin' do
     resources :qr_codes
-    resources :user_domains, except: :show
+    resources :domains, as: :user_domains, except: :show
+    resources :users, only: :update
   end
   get ':path_alias', to: 'qr_codes#show', as: "qr_code_link"
 
   namespace :api do
     namespace :v1 do
-      resources :qr_codes
+      resources :qr_codes, only: [:index, :create, :show]
     end
   end
 

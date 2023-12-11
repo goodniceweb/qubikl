@@ -1,5 +1,5 @@
-<h1 class="title">New QR Code</h1>
+<h1 class="title"><%= t('views.qr_codes.new_qr_code') %></h1>
 
-<%= link_to 'Back', qr_codes_path %>
+<%= link_to t('views.qr_codes.back'), qr_codes_path %>
 
 <%= render 'form', qr_code: @qr_code %>

@@ -1,6 +1,6 @@
 <%= form_with(model: qr_code) do |form| %>
   <div class="field">
-    <%= form.label :destination, "Your Link", class: "label" %>
+    <%= form.label :destination, t('views.qr_codes.your_link'), class: "label" %>
     <div class="control">
       <%= form.text_field :destination, class: "input", autofocus: true %>
     </div>
@@ -26,7 +26,7 @@
         } %>
         <div class="modal-card">
           <header class="modal-card-head">
-            <p class="modal-card-title">Select Domain or Add New</p>
+            <p class="modal-card-title"><%= t('views.qr_codes.select_domain_or_add_new') %></p>
             <%= button_tag type: "button",
                            class: "delete",
                            aria: { label: "close" },
@@ -58,17 +58,17 @@
             </div>
           </section>
           <footer class="modal-card-foot">
-            <%= button_tag "Close", type: "button",
+            <%= button_tag t('views.qr_codes.close'), type: "button",
                                     class: "button is-info is-fullwidth",
                                     data: {
                                      controller: "modal",
                                      action: "click->modal#close",
                                      modal_id: "domainSelectModal"
                                     } %>
-            <%= link_to "Add Your Custom Domain",
+            <%= link_to t('views.qr_codes.add_custom_domain'),
                         new_user_domain_path,
                         class: "button is-link" %>
-            <%= button_tag "Select this domain",
+            <%= button_tag t('views.qr_codes.select_this_domain'),
                            type: "button",
                            class: "button is-success is-fullwidth",
                            data: {
@@ -91,7 +91,7 @@
   </div>
   <% if qr_code.errors.any? %>
     <div class="notification is-danger" id="error_explanation">
-      <p><%= pluralize(qr_code.errors.count, "error") %> prohibited this qr_code from being saved:</p>
+      <p><%= pluralize(qr_code.errors.count, t('views.qr_codes.error')) %> <%= t('views.qr_codes.prohibited_saving_qr_code') %>:</p>
 
       <ul>
         <% qr_code.errors.each do |error| %>
@@ -102,6 +102,6 @@
   <% end %>
 
   <div class="actions">
-    <%= form.submit "Create QR Code", class: "button is-primary is-fullwidth" %>
+    <%= form.submit t('views.qr_codes.create_qr_code'), class: "button is-primary is-fullwidth" %>
   </div>
 <% end %>

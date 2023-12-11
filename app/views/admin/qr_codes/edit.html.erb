@@ -1,6 +1,6 @@
-<h1 class="title">Editing QR Code</h1>
+<h1 class="title"><%= t('views.qr_codes.editing_qr_code') %></h1>
 
 <%= render 'form', qr_code: @qr_code %>
 
-<%= link_to 'Show', @qr_code %> |
-<%= link_to 'Back', qr_codes_path %>
+<%= link_to t('views.qr_codes.show'), @qr_code %> |
+<%= link_to t('views.qr_codes.back'), qr_codes_path %>

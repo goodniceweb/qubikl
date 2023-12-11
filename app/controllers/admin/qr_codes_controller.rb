@@ -1,6 +1,7 @@
 module Admin
   class QRCodesController < ::Admin::BaseController
     before_action :set_qr_code, only: [:show, :edit, :update, :destroy]
+    load_and_authorize_resource
 
     # GET /qr_codes
     def index
@@ -29,7 +30,7 @@ module Admin
       @qr_code = QRCode.new(qr_code_params)
 
       if @qr_code.save
-        redirect_to qr_codes_url, notice: 'QR code was successfully created.'
+        redirect_to qr_codes_url, notice: t('controllers.qr_codes.create.success')
       else
         render :new
       end
@@ -38,7 +39,7 @@ module Admin
     # PATCH/PUT /qr_codes/1
     def update
       if @qr_code.update(qr_code_params)
-        redirect_to qr_codes_url, notice: 'QR code was successfully updated.'
+        redirect_to qr_codes_url, notice: t('controllers.qr_codes.update.success')
       else
         render :edit
       end
@@ -47,7 +48,7 @@ module Admin
     # DELETE /qr_codes/1
     def destroy
       @qr_code.destroy
-      redirect_to qr_codes_url, notice: 'QR code was successfully destroyed.'
+      redirect_to qr_codes_url, notice: t('controllers.qr_codes.destroy.success')
     end
 
     private

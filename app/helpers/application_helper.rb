@@ -1,9 +1,5 @@
 module ApplicationHelper
-  def options_for_domain(_current_user)
-    [
-      [request.host_with_port, request.base_url],
-      # hardcode for test purposes
-      ["goodniceweb.me", "goodniceweb.me"]
-    ]
+  def options_for_domain(user)
+    user.domains.pluck(:name).unshift(request.host_with_port).map { |domain| [domain, domain] }
   end
 end

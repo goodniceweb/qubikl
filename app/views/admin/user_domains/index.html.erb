@@ -1,0 +1,33 @@
+<div class="columns">
+  <div class="column">
+    <h1 class="title">Your domains</h1>
+  </div>
+  <div class="column is-flex is-flex-direction-row-reverse">
+    <%= link_to 'Add Domain', new_user_domain_path, class: "button is-primary" %>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>QR Codes amount</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_domains.each do |user_domain| %>
+      <tr class="table-row">
+        <td><%= user_domain.name %></td>
+        <td><%= user_domain.qr_codes.count %></td>
+        <td>
+          <div class="buttons has-addons">
+            <%= link_to 'Edit', edit_user_domain_path(user_domain), class: 'button is-warning' %>
+            <%= link_to 'Destroy', user_domain, class: 'button is-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

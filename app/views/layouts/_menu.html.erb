@@ -4,6 +4,7 @@
       QR Code generator service!
     </p>
     <li><%= link_to "QR Codes", qr_codes_path %></li>
-    <li><a href="#">Sign Out</a></li>
+    <li><%= link_to "Your Domains", user_domains_path %></li>
+    <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
   </ul>
 </aside>

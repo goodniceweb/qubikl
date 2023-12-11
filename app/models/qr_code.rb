@@ -3,6 +3,7 @@ class QRCode < ApplicationRecord
   mount_uploader :png, PngQRUploader
 
   belongs_to :user
+  belongs_to :user_domain, optional: true
   has_many :visits, dependent: :destroy
 
   validates :destination, :path_alias, presence: true

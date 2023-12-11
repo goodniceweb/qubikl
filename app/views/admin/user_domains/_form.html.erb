@@ -1,0 +1,23 @@
+<%= form_with(model: user_domain) do |form| %>
+  <div class="field">
+    <%= form.label :name, class: "label" %>
+    <div class="control">
+      <%= form.text_field :name, class: "input" %>
+    </div>
+  </div>
+  <% if user_domain.errors.any? %>
+    <div class="notification is-danger" id="error_explanation">
+      <p><%= pluralize(user_domain.errors.count, "error") %> prohibited this domain from being saved:</p>
+
+      <ul>
+        <% user_domain.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit "#{user_domain.new_record? ? "Create" : "Update"} Domain", class: "button is-primary" %>
+  </div>
+<% end %>

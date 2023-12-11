@@ -200,6 +200,7 @@ GEM
     nokogiri (1.15.5-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    pg (1.5.3)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -305,9 +306,6 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.6.9-aarch64-linux)
-    sqlite3 (1.6.9-arm64-darwin)
-    sqlite3 (1.6.9-x86_64-linux)
     ssrf_filter (1.1.2)
     stimulus-rails (1.2.2)
       railties (>= 6.0.0)
@@ -361,6 +359,7 @@ DEPENDENCIES
   jsonapi-rails
   listen (~> 3.3)
   maxmind-geoip2
+  pg
   pry-rails
   puma (~> 5.0)
   rack-cors
@@ -371,7 +370,6 @@ DEPENDENCIES
   selenium-webdriver
   sidekiq
   spring
-  sqlite3 (~> 1.4)
   stimulus-rails
   swagger-blocks
   swagger-ui_rails

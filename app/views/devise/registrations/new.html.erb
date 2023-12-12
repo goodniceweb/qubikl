@@ -1,24 +1,24 @@
-<h2 class="title">Sign up</h2>
+<h2 class="title"><%= t('views.devise.registrations.sign_up_title') %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "form" }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email, class: "label" %>
+    <%= f.label :email, t('views.devise.shared.email'), class: "label" %>
     <div class="control">
       <%= f.email_field :email, class: "input", autofocus: true, autocomplete: "email" %>
     </div>
   </div>
 
   <div class="field">
-    <%= f.label :password, class: "label" %>
+    <%= f.label :password, t('views.devise.shared.password'), class: "label" %>
     <div class="control">
       <%= f.password_field :password, class: "input", autocomplete: "new-password" %>
     </div>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation, class: "label" %>
+    <%= f.label :password_confirmation, t('views.devise.registrations.password_confirmation'), class: "label" %>
     <div class="control">
       <%= f.password_field :password_confirmation, class: "input", autocomplete: "new-password" %>
     </div>
@@ -28,7 +28,7 @@
     <div class="column is-half">
       <div class="field">
         <div class="control">
-          <%= f.submit "Sign up", class: "button is-primary is-fullwidth" %>
+          <%= f.submit t('views.devise.registrations.sign_up'), class: "button is-primary is-fullwidth" %>
         </div>
       </div>
     </div>

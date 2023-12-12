@@ -70,7 +70,7 @@
         <% end %>
       
         <div class="field">
-          <%= f.label :password, class: "label" %> <i>(<%= t('views.devise.registrations.leave_blank') %>)</i><br />
+          <%= f.label :password, t('views.devise.registrations.password'), class: "label" %> <i>(<%= t('views.devise.registrations.leave_blank') %>)</i><br />
           <div class="control">
             <%= f.password_field :password, class: "input", autocomplete: "new-password" %>
           </div>
@@ -81,14 +81,14 @@
         </div>
       
         <div class="field">
-          <%= f.label :password_confirmation, class: "label" %><br />
+          <%= f.label :password_confirmation, t('views.devise.registrations.password_confirmation'), class: "label" %><br />
           <div class="control">
             <%= f.password_field :password_confirmation, class: "input", autocomplete: "new-password" %>
           </div>
         </div>
       
         <div class="field">
-          <%= f.label :current_password, class: "label" %> <i>(<%= t('views.devise.registrations.current_password') %>)</i><br />
+          <%= f.label :current_password, t('views.devise.registrations.current_password'), class: "label" %> <i>(<%= t('views.devise.registrations.your_current_password') %>)</i><br />
           <div class="control">
             <%= f.password_field :current_password, class: "input", autocomplete: "current-password" %>
           </div>

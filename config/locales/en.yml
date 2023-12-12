@@ -58,7 +58,7 @@ en:
         currently_waiting_confirmation: "Currently waiting confirmation for: %{unconfirmed_email}"
         leave_blank: "leave blank if you don't want to change it"
         minimum_password_length: "(minimum is %{minimum_password_length} characters)"
-        current_password: "we need your current password to confirm your changes"
+        your_current_password: "we need your current password to confirm your changes"
         password: "Password"
         password_confirmation: "Password Confirmation"
         current_password: "Current Password"
@@ -71,6 +71,19 @@ en:
         security_tab: "Security"
         remove_account_tab: "Remove Account"
         are_you_sure: "Are you sure you want to delete your account? All related data will be destroyed."
+        sign_up_title: 'Sign Up'
+        sign_up: 'Sign Up'
+        email: 'Email'
+      sessions:
+        log_in_title: 'Log In'
+        log_in: 'Log In'
+      shared:
+        log_in: 'Log In'
+        sign_up: 'Sign Up'
+        forgot_password: 'Forgot Password?'
+        no_confirmation_instructions: "Didn't receive confirmation instructions?"
+        no_unlock_instructions: "Didn't receive unlock instructions?"
+        sign_in_with: 'Sign in with %{provider}'
     navigation:
       qr_code_generator_service: 'QR Code Generator Service'
       qr_codes: 'QR Codes'

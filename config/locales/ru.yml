@@ -55,8 +55,7 @@ ru:
         currently_waiting_confirmation: "Ожидание подтверждения для: %{unconfirmed_email}"
         leave_blank: "оставьте пустым, если не хотите изменять"
         minimum_password_length: "(минимум %{minimum_password_length} символов)"
-        current_password: "нам нужен ваш текущий пароль для подтверждения изменений"
-        password: "Пароль"
+        your_current_password: "нам нужен ваш текущий пароль для подтверждения изменений"
         password_confirmation: "Подтверждение пароля"
         current_password: "Текущий пароль"
         update: "Обновить"
@@ -68,6 +67,20 @@ ru:
         security_tab: "Безопасность"
         remove_account_tab: "Удалить аккаунт"
         are_you_sure: "Вы уверены, что хотите удалить аккаунт? Все Ваши данные будут уничтожены."
+        sign_up_title: 'Создать аккаунт'
+        sign_up: 'Зарегистрироваться'
+      sessions:
+        log_in_title: 'Войти'
+        log_in: 'Войти'
+      shared:
+        email: 'Электронный почтовый ящик'
+        password: "Пароль"
+        log_in: 'Войти'
+        sign_up: 'Зарегистрироваться'
+        forgot_password: 'Забыли пароль?'
+        no_confirmation_instructions: 'Не получили инструкции по подтверждению?'
+        no_unlock_instructions: 'Не получили инструкции по разблокировке?'
+        sign_in_with: 'Войти через %{provider}'
     navigation:
       qr_code_generator_service: 'Сервис генерации QR-кодов'
       qr_codes: 'QR-коды'

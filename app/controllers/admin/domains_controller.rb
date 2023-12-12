@@ -1,28 +1,28 @@
 module Admin
   class DomainsController < ::Admin::BaseController
     before_action :set_user_domain, only: [:show, :edit, :update, :destroy]
-    load_and_authorize_resource class: UserDomain.to_s
+    load_and_authorize_resource class: UserDomain
 
     def index
       @user_domains = UserDomain.where(user_id: current_user.id).all
     end
 
-    # GET /user_domains/1
+    # GET /domains/1
     def show
     end
 
-    # GET /user_domains/new
+    # GET /domains/new
     def new
       @user_domain = UserDomain.new(user: current_user)
     end
 
-    # GET /user_domains/1/edit
+    # GET /domains/1/edit
     def edit
     end
 
-    # POST /user_domains
+    # POST /domains
     def create
-      @user_domain = UserDomain.new(user_domain_params)
+      @user_domain = UserDomain.new(domain_params)
 
       if @user_domain.save
         redirect_to user_domains_url, notice: t('controllers.user_domains.create.success')
@@ -31,16 +31,16 @@ module Admin
       end
     end
 
-    # PATCH/PUT /user_domains/1
+    # PATCH/PUT /domains/1
     def update
-      if @user_domain.update(user_domain_params)
+      if @user_domain.update(domain_params)
         redirect_to user_domains_url, notice: t('controllers.user_domains.update.success')
       else
         render :edit
       end
     end
 
-    # DELETE /user_domains/1
+    # DELETE /domains/1
     def destroy
       @user_domain.destroy
       redirect_to user_domains_url, notice: t('controllers.user_domains.destroy.success')
@@ -53,8 +53,8 @@ module Admin
       @user_domain = UserDomain.where(user_id: current_user.id).find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
-    def user_domain_params
+    # This method has to be named domain_params because of the way CanCanCan works
+    def domain_params
       params[:user_domain][:user_id] = current_user.id
       params.fetch(:user_domain, {}).permit(:name, :user_id)
     end

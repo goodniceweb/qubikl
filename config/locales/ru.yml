@@ -126,9 +126,9 @@ ru:
       breakdown_by_os: "Разбивка по ОС"
       breakdown_by_device: "Разбивка по устройству"
     domains:
-      title: 'Сам домен'
+      title: 'Домены'
       add_domain: 'Добавить домен'
-      name: 'Название'
+      name: 'Сам домен'
       qr_codes_amount: 'Количество QR-кодов'
       actions: 'Действия'
       edit: 'Редактировать'

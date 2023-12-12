@@ -54,7 +54,7 @@ en:
   views:
     devise:
       registrations:
-        edit: "Edit User"
+        settings: "Settings"
         currently_waiting_confirmation: "Currently waiting confirmation for: %{unconfirmed_email}"
         leave_blank: "leave blank if you don't want to change it"
         minimum_password_length: "(minimum is %{minimum_password_length} characters)"
@@ -64,9 +64,19 @@ en:
         current_password: "Current Password"
         update: "Update"
         cancel_account: "Cancel my account"
-        unhappy: "Unhappy? %{registration_path}"
+        unhappy: "Unhappy?"
         back: "Back"
         language: "Language"
+        profile_tab: "Profile"
+        security_tab: "Security"
+        remove_account_tab: "Remove Account"
+        are_you_sure: "Are you sure you want to delete your account? All related data will be destroyed."
+    navigation:
+      qr_code_generator_service: 'QR Code Generator Service'
+      qr_codes: 'QR Codes'
+      your_domains: 'Your Domains'
+      settings: 'Settings'
+      sign_out: 'Sign Out'
     qr_codes:
       your_link: "Your Link"
       select_domain_or_add_new: "Select Domain or Add New"
@@ -84,6 +94,7 @@ en:
       link: "Link"
       path_alias: "Path Alias"
       visits: "Visits"
+      referrer: "Referrer"
       actions: "Actions"
       go_to_destination: "Go to Destination"
       stats: "Stats"
@@ -104,6 +115,22 @@ en:
       copy: "Copy"
       breakdown_by_os: "Breakdown by OS"
       breakdown_by_device: "Breakdown by Device"
+    domains:
+      title: 'Title'
+      add_domain: 'Add Domain'
+      name: 'Name'
+      qr_codes_amount: 'QR Codes Amount'
+      actions: 'Actions'
+      edit: 'Edit'
+      destroy: 'Destroy'
+      confirm_destroy: 'Are you sure you want to delete this?'
+      error: 'Error'
+      prohibited: 'Prohibited'
+      saving: 'Saving'
+      create_update: 'Create/Update'
+      editing_domain: 'Editing Domain'
+      new_domain: 'New Domain'
+      back: 'Back'
     # Add your view translations here
   # stimulus:
     # Add your Stimulus controller translations here

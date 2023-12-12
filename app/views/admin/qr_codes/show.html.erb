@@ -3,11 +3,11 @@
   <div class="column">
     <div class="card">
       <div class="card-content is-flex is-flex-direction-row is-justify-content-space-between is-align-items-flex-start">
-        <h1><%= t('en.views.qr_codes.stats') %></h1>
+        <h1><%= t('views.qr_codes.stats') %></h1>
 
         <div class="buttons has-addons">
-          <%= link_to t('en.views.qr_codes.edit'), edit_qr_code_path(@qr_code), class: 'button is-warning' %>
-          <%= link_to t('en.views.qr_codes.back'), qr_codes_path, class: 'button is-info' %>
+          <%= link_to t('views.qr_codes.edit'), edit_qr_code_path(@qr_code), class: 'button is-small is-warning' %>
+          <%= link_to t('views.qr_codes.back'), qr_codes_path, class: 'button is-small is-info' %>
         </div>
       </div>
     </div>
@@ -15,7 +15,7 @@
   <div class="column">
     <div class="card" style="height: 100%">
       <div class="card-content">
-        <p class="title"><%= t('en.views.qr_codes.total', count: @qr_code.visits.count) %></p>
+        <p class="title"><%= t('views.qr_codes.total', count: @qr_code.visits.count) %></p>
       </div>
     </div>
   </div>
@@ -27,9 +27,9 @@
   <div class="column">
     <div class="card">
       <div class="card-content">
-        <h2 class="subtitle"><%= t('en.views.qr_codes.points_to') %></h2>
+        <h2 class="subtitle"><%= t('views.qr_codes.points_to') %></h2>
         <p><%= link_to @qr_code.destination, @qr_code.destination, target: '_blank' %></p>
-        <h3 class="subtitle"><%= t('en.views.qr_codes.with_link') %></h3>
+        <h3 class="subtitle"><%= t('views.qr_codes.with_link') %></h3>
         <p><%= link_to @qr_code.tracking_link, @qr_code.tracking_link, target: '_blank' %></p>
         <div class="popover is-popover-bottom is-not-popover-hover">
           <%= button_tag class: "button is-primary popover-trigger",
@@ -41,10 +41,10 @@
             <span class="icon">
               <i class="fas fa-copy"></i>
             </span>
-            <span><%= t('en.views.qr_codes.copy') %></span>
+            <span><%= t('views.qr_codes.copy') %></span>
           <% end %>
           <div class="popover-content">
-            <%= t('en.views.qr_codes.copied') %>
+            <%= t('views.qr_codes.copied') %>
           </div>
         </div>
       </div>
@@ -53,18 +53,18 @@
   <div class="column">
     <div class="card">
       <div class="card-content">
-        <h3 class="subtitle"><%= t('en.views.qr_codes.top_referrals') %></h3>
+        <h3 class="subtitle"><%= t('views.qr_codes.top_referrals') %></h3>
         <table class="table">
           <thead>
             <tr>
-              <th><%= t('en.views.qr_codes.referrer') %></th>
-              <th><%= t('en.views.qr_codes.visits') %></th>
+              <th><%= t('views.qr_codes.referrer') %></th>
+              <th><%= t('views.qr_codes.visits') %></th>
             </tr>
           </thead>
           <tbody>
             <% @qr_code.visits.group(:referrer).count.sort_by { |_, count| -count }.first(5).each do |referrer, count| %>
               <tr>
-                <td><%= referrer || t('en.views.qr_codes.na') %></td>
+                <td><%= referrer || t('views.qr_codes.na') %></td>
                 <td><%= count %></td>
               </tr>
             <% end %>
@@ -89,7 +89,7 @@
   <div class="column">
     <div class="card">
       <div class="card-content">
-        <h3><%= t('en.views.qr_codes.breakdown_by_os') %></h3>
+        <h3><%= t('views.qr_codes.breakdown_by_os') %></h3>
         <%= pie_chart @os_data, donut: true %>
       </div>
     </div>
@@ -97,7 +97,7 @@
   <div class="column">
     <div class="card">
       <div class="card-content">
-        <h3><%= t('en.views.qr_codes.breakdown_by_device') %></h3>
+        <h3><%= t('views.qr_codes.breakdown_by_device') %></h3>
         <%= pie_chart @device_data, donut: true %>
       </div>
     </div>

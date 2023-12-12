@@ -1,11 +1,11 @@
 <aside class="menu">
   <ul class="menu-list">
     <p class="menu-label">
-      QR Code generator service!
+      <%= t('views.navigation.qr_code_generator_service') %>
     </p>
-    <li><%= link_to "QR Codes", qr_codes_path %></li>
-    <li><%= link_to "Your Domains", user_domains_path %></li>
-    <li><%= link_to "Settings", edit_user_registration_path %></li>
-    <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+    <li><%= link_to t('views.navigation.qr_codes'), qr_codes_path %></li>
+    <li><%= link_to t('views.navigation.your_domains'), user_domains_path %></li>
+    <li><%= link_to t('views.navigation.settings'), edit_user_registration_path %></li>
+    <li><%= link_to t('views.navigation.sign_out'), destroy_user_session_path, :method => :delete %></li>
   </ul>
 </aside>

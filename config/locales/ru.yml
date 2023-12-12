@@ -51,7 +51,7 @@ ru:
   views:
     devise:
       registrations:
-        edit: "Редактировать пользователя"
+        settings: "Настройки"
         currently_waiting_confirmation: "Ожидание подтверждения для: %{unconfirmed_email}"
         leave_blank: "оставьте пустым, если не хотите изменять"
         minimum_password_length: "(минимум %{minimum_password_length} символов)"
@@ -61,9 +61,19 @@ ru:
         current_password: "Текущий пароль"
         update: "Обновить"
         cancel_account: "Отменить мой аккаунт"
-        unhappy: "Не довольны? %{registration_path}"
+        unhappy: "Не довольны?"
         back: "Назад"
         language: "Язык"
+        profile_tab: "Профиль"
+        security_tab: "Безопасность"
+        remove_account_tab: "Удалить аккаунт"
+        are_you_sure: "Вы уверены, что хотите удалить аккаунт? Все Ваши данные будут уничтожены."
+    navigation:
+      qr_code_generator_service: 'Сервис генерации QR-кодов'
+      qr_codes: 'QR-коды'
+      your_domains: 'Ваши Домены'
+      settings: 'Настройки'
+      sign_out: 'Выйти'
     qr_codes:
       your_link: "Ваша ссылка"
       select_domain_or_add_new: "Выберите домен или добавьте новый"
@@ -80,6 +90,7 @@ ru:
       new_qr_code: "Новый QR-код"
       link: "Ссылка"
       path_alias: "Псевдоним пути"
+      referrer: "Рефералы"
       visits: "Посещения"
       actions: "Действия"
       go_to_destination: "Перейти к назначению"
@@ -101,6 +112,22 @@ ru:
       copy: "Копировать"
       breakdown_by_os: "Разбивка по ОС"
       breakdown_by_device: "Разбивка по устройству"
+    domains:
+      title: 'Сам домен'
+      add_domain: 'Добавить домен'
+      name: 'Название'
+      qr_codes_amount: 'Количество QR-кодов'
+      actions: 'Действия'
+      edit: 'Редактировать'
+      destroy: 'Удалить'
+      confirm_destroy: 'Вы уверены, что хотите удалить это?'
+      error: 'Ошибка'
+      prohibited: 'Запрещено'
+      saving: 'Сохранение'
+      create_update: 'Создать/Обновить'
+      editing_domain: 'Редактирование домена'
+      new_domain: 'Новый домен'
+      back: 'Назад'
     stimulus:
       # Добавьте здесь переводы для контроллеров Stimulus
 

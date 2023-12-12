@@ -1,5 +1,5 @@
-<h1 class="title">New Domain</h1>
+<h1 class="title"><%= t('views.domains.new_domain') %></h1>
 
 <%= render 'form', user_domain: @user_domain %>
 
-<%= link_to 'Back', user_domains_path %>
+<%= link_to t('views.domains.back'), user_domains_path %>

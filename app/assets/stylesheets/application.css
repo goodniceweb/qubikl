@@ -35,3 +35,11 @@
 .table-row {
   max-height: 150px;
 }
+
+.navigation {
+  min-height: 100vh;
+}
+
+.lang-select {
+  width: 300px;
+}

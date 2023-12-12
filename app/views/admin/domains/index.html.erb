@@ -1,18 +1,18 @@
 <div class="columns">
   <div class="column">
-    <h1 class="title">Your domains</h1>
+    <h1 class="title"><%= t('views.domains.title') %></h1>
   </div>
   <div class="column is-flex is-flex-direction-row-reverse">
-    <%= link_to 'Add Domain', new_user_domain_path, class: "button is-primary" %>
+    <%= link_to t('views.domains.add_domain'), new_user_domain_path, class: "button is-primary" %>
   </div>
 </div>
 
 <table class="table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>QR Codes amount</th>
-      <th>Actions</th>
+      <th><%= t('views.domains.name') %></th>
+      <th><%= t('views.domains.qr_codes_amount') %></th>
+      <th><%= t('views.domains.actions') %></th>
     </tr>
   </thead>
 
@@ -23,8 +23,8 @@
         <td><%= user_domain.qr_codes.count %></td>
         <td>
           <div class="buttons has-addons">
-            <%= link_to 'Edit', edit_user_domain_path(user_domain), class: 'button is-warning' %>
-            <%= link_to 'Destroy', user_domain, class: 'button is-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to t('views.domains.edit'), edit_user_domain_path(user_domain), class: 'button is-warning' %>
+            <%= link_to t('views.domains.destroy'), user_domain, class: 'button is-danger', method: :delete, data: { confirm: t('views.domains.confirm_destroy') } %>
           </div>
         </td>
       </tr>

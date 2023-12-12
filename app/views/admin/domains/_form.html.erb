@@ -7,7 +7,7 @@
   </div>
   <% if user_domain.errors.any? %>
     <div class="notification is-danger" id="error_explanation">
-      <p><%= pluralize(user_domain.errors.count, "error") %> prohibited this domain from being saved:</p>
+      <p><%= pluralize(user_domain.errors.count, t('views.domains.error')) %> <%= t('views.domains.prohibited') %> <%= t('views.domains.saving') %>:</p>
 
       <ul>
         <% user_domain.errors.each do |error| %>
@@ -18,6 +18,6 @@
   <% end %>
 
   <div class="actions">
-    <%= form.submit "#{user_domain.new_record? ? "Create" : "Update"} Domain", class: "button is-primary" %>
+    <%= form.submit "#{t('views.domains.create_update')} Domain", class: "button is-primary" %>
   </div>
 <% end %>

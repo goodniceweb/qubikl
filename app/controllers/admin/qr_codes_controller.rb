@@ -5,7 +5,8 @@ module Admin
 
     # GET /qr_codes
     def index
-      @qr_codes = QRCode.where(user_id: current_user.id).all
+      @qr_codes = QRCode.all
+      @qr_codes = @qr_codes.where(user_id: current_user.id) unless current_user.admin?
     end
 
     # GET /qr_codes/1

@@ -4,8 +4,7 @@
   "dependencies": {
     "@rails/activestorage": "^7.1.2",
     "@rails/ujs": "^7.1.2",
-    "@rails/webpacker": "^5.4.4",
-    "chart.js": "^4.4.1"
+    "@rails/webpacker": "^5.4.4"
   },
   "version": "0.1.0",
   "devDependencies": {

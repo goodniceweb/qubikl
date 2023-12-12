@@ -13,7 +13,13 @@ module Admin
     private
 
     def set_user_locale
-      I18n.locale = current_user&.locale || I18n.default_locale
+      I18n.locale = current_user&.locale ||
+                    extract_locale_from_accept_language_header ||
+                    I18n.default_locale
+    end
+
+    def extract_locale_from_accept_language_header
+      request.env['HTTP_ACCEPT_LANGUAGE']&.scan(/^[a-z]{2}/)&.first
     end
   end
 end

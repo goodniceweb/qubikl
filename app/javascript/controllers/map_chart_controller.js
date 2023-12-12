@@ -1,6 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 import * as L from 'leaflet';
 import tinycolor from 'tinycolor';
+import { i18n  } from "../i18next";
 
 export default class extends Controller {
   connect() {
@@ -13,8 +14,14 @@ export default class extends Controller {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
     }).addTo(this.map)
-    this.info = this.setupInfo()
-    this.info.addTo(this.map)
+
+    const { language } = this.element.dataset
+    // this is a very workaround to work with simple i18n as a promise
+    // TODO: find a way to load i18n synchronously
+    i18n.then(t => {
+      this.info = this.setupInfo(t, language)
+      this.info.addTo(this.map)
+    })
 
     // took from: https://geojson-maps.ash.ms/
     fetch('/geo.json')
@@ -55,31 +62,34 @@ export default class extends Controller {
     return [countryCounts, maxTotal]
   }
 
-  setupInfo = () => {
+  setupInfo = (t, lng) => {
     const info = L.control();
 
     info.onAdd = function (_map) {
-        this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
-        this.update();
-        return this._div;
+      this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+      this.update();
+      return this._div;
     };
-    
+
     // method that we will use to update the control based on feature properties passed
     const showVisits = (visitsCount) => {
-      if (visitsCount > 0) {
-        return `${visitsCount} visits`
+      if (isNaN(visitsCount)) {
+        return t('no_visits', { lng });
       }
 
-      return 'No visits'
-    }
-    info.update = function (props) {
-        this._div.innerHTML = '<h4>Stats per country</h4>' +  (props ?
-            `<b>${props.name}</b><br />${showVisits(props.counts)}`
-            : 'Hover over a country');
+      const visitText = t('visits_count', { count: visitsCount, lng });
+      return `${visitsCount} ${visitText}`;
     };
 
+    info.update = function (props) {
+      this._div.innerHTML = `<h4>${t('stats_per_country', { lng })}</h4>` + (props ?
+        `<b>${props.name}</b><br />${showVisits(props.counts)}`
+        : t('hover_over_country', { lng }));
+    };
+    
+
     return info;
-  }
+  };
 
   mapStyle = (hexColor, maxCount) => (feature) => {
     return {

@@ -79,7 +79,14 @@
 <!-- Map -->
 <div class="card">
   <div class="card-content p-0">
-    <%= content_tag :div, nil, id: "mapChart", data: { countries: @countries, controller: "map-chart" } %>
+    <%= content_tag :div,
+                    nil,
+                    id: "mapChart",
+                    data: {
+                      language: I18n.locale,
+                      countries: @countries,
+                      controller: "map-chart"
+                    } %>
   </div>
 </div>
 <!-- End of Map -->

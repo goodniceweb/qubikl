@@ -128,6 +128,11 @@ ru:
       editing_domain: 'Редактирование домена'
       new_domain: 'Новый домен'
       back: 'Назад'
-    stimulus:
-      # Добавьте здесь переводы для контроллеров Stimulus
-
+  stimulus:
+    no_visits: 'Нет посещений'
+    stats_per_country: 'Статистика по странам'
+    hover_over_country: 'Наведите курсор на страну<br>для получения дополнительной информации'
+    visits_count:
+      zero: 'посещений'
+      one: 'посещение'
+      other: 'посещений'

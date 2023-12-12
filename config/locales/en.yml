@@ -131,6 +131,11 @@ en:
       editing_domain: 'Editing Domain'
       new_domain: 'New Domain'
       back: 'Back'
-    # Add your view translations here
-  # stimulus:
-    # Add your Stimulus controller translations here
+  stimulus:
+    visits_count:
+      zero: 'visits'
+      one: 'visit'
+      other: 'visits'
+    no_visits: 'No Visits'
+    stats_per_country: 'Stats per Country'
+    hover_over_country: 'Hover over a country for more details'

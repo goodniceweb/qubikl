@@ -1,16 +1,16 @@
-<%= form_with(model: user_domain) do |form| %>
+<%= form_with(model: api_key) do |form| %>
   <div class="field">
     <%= form.label :name, class: "label" %>
     <div class="control">
       <%= form.text_field :name, class: "input" %>
     </div>
   </div>
-  <% if user_domain.errors.any? %>
+  <% if api_key.errors.any? %>
     <div class="notification is-danger" id="error_explanation">
-      <p><%= pluralize(user_domain.errors.count, t('views.domains.error')) %> <%= t('views.domains.prohibited') %> <%= t('views.domains.saving') %>:</p>
+      <p><%= pluralize(api_key.errors.count, t('views.api_keys.error')) %> <%= t('views.api_keys.prohibited') %> <%= t('views.api_keys.saving') %>:</p>
 
       <ul>
-        <% user_domain.errors.each do |error| %>
+        <% api_key.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -18,6 +18,6 @@
   <% end %>
 
   <div class="actions">
-    <%= form.submit "#{t('views.domains.create_update')}", class: "button is-primary" %>
+    <%= form.submit "#{t('views.api_keys.create_update')}", class: "button is-primary" %>
   </div>
 <% end %>

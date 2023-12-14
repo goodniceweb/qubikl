@@ -1,7 +1,7 @@
 class SerializableQRCode < JSONAPI::Serializable::Resource
   type 'qr_codes'
 
-  attribute :external_id
+  attribute :path_alias
   attribute :destination
   attribute :png
   attribute :svg

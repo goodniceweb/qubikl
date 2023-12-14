@@ -7,6 +7,10 @@ en:
       user_domain:
         one: "Domain"
         other: "Domains"
+      api_keys:
+        one: "API Key"
+        other: "API Keys"
+        default_name: "My Key"
     attributes:
       qr_code:
         destination: "Destination"
@@ -51,6 +55,11 @@ en:
       update:
         success: "User was successfully updated."
         failed: "User was not updated."
+    api_keys:
+      create:
+        success: "API Key was successfully created."
+      destroy:
+        success: "API Key was successfully destroyed."
   views:
     devise:
       registrations:
@@ -88,6 +97,7 @@ en:
       qr_code_generator_service: 'QR Code Generator Service'
       qr_codes: 'QR Codes'
       your_domains: 'Your Domains'
+      api_keys: 'API Keys'
       settings: 'Settings'
       sign_out: 'Sign Out'
     qr_codes:
@@ -140,9 +150,24 @@ en:
       error: 'Error'
       prohibited: 'Prohibited'
       saving: 'Saving'
-      create_update: 'Create/Update'
+      create_update: 'Create/Update Domain'
       editing_domain: 'Editing Domain'
       new_domain: 'New Domain'
+      back: 'Back'
+    api_keys:
+      title: 'API Keys'
+      add_api_key: 'Add API Key'
+      name: 'Name'
+      actions: 'Actions'
+      copy: 'Copy'
+      copied: "Copied!"
+      destroy: 'Destroy'
+      confirm_destroy: 'Are you sure you want to delete this?'
+      error: 'Error'
+      prohibited: 'Prohibited'
+      saving: 'Saving'
+      create_update: 'Create/Update'
+      new_api_key: 'New API Key'
       back: 'Back'
   stimulus:
     visits_count:

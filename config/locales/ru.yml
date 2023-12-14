@@ -7,6 +7,10 @@ ru:
       user_domain:
         one: "Домен"
         other: "Домены"
+      api_keys:
+        one: "API Ключ"
+        other: "API Ключи"
+        default_name: "Мой ключ"
     attributes:
       qr_code:
         destination: "Назначение"
@@ -48,6 +52,11 @@ ru:
       update:
         success: "Пользователь успешно обновлен."
         failed: "Пользователь не был обновлен."
+    api_keys:
+      create:
+        success: "API ключ успешно создан."
+      destroy:
+        success: "API ключ успешно удален."
   views:
     devise:
       registrations:
@@ -85,6 +94,7 @@ ru:
       qr_code_generator_service: 'Сервис генерации QR-кодов'
       qr_codes: 'QR-коды'
       your_domains: 'Ваши Домены'
+      api_keys: 'API Ключи'
       settings: 'Настройки'
       sign_out: 'Выйти'
     qr_codes:
@@ -140,6 +150,21 @@ ru:
       create_update: 'Создать/Обновить'
       editing_domain: 'Редактирование домена'
       new_domain: 'Новый домен'
+      back: 'Назад'
+    api_keys:
+      title: 'Ключи API'
+      add_api_key: 'Добавить ключ API'
+      name: 'Название'
+      actions: 'Действия'
+      copied: "Скопировано!"
+      copy: "Копировать"
+      destroy: 'Удалить'
+      confirm_destroy: 'Вы уверены, что хотите удалить это?'
+      error: 'Ошибка'
+      prohibited: 'Запрещено'
+      saving: 'Сохранение'
+      create_update: 'Создать/Обновить'
+      new_api_key: 'Новый ключ API'
       back: 'Назад'
   stimulus:
     no_visits: 'Нет посещений'

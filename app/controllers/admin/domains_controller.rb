@@ -3,6 +3,7 @@ module Admin
     before_action :set_user_domain, only: [:show, :edit, :update, :destroy]
     load_and_authorize_resource class: UserDomain
 
+    # GET /domains
     def index
       @user_domains = UserDomain.where(user_id: current_user.id).all
     end

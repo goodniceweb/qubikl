@@ -3,7 +3,7 @@ namespace :users do
     email = args[:email]
 
     user = User.where(email: email).first_or_create do |u|
-      u.password = SecureRandom.hex(32)
+      u.password = SecureRandom.hex(16)
       u.password_confirmation = u.password
       puts "Didn't find a user with email #{email}, so created one with password #{u.password}"
     end

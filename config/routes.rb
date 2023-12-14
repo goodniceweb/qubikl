@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   scope '/a/', module: 'admin' do
     resources :qr_codes
     resources :domains, as: :user_domains, except: :show
+    resources :api_keys, except: [:show, :edit, :update]
     resources :users, only: :update
   end
   get ':path_alias', to: 'qr_codes#show', as: "qr_code_link"

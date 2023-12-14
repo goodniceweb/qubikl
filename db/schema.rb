@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_11_093722) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_12_192416) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "api_keys", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.string "secret"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_api_keys_on_user_id"
+  end
 
   create_table "qr_codes", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -62,6 +71,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_11_093722) do
     t.index ["qr_code_id"], name: "index_visits_on_qr_code_id"
   end
 
+  add_foreign_key "api_keys", "users"
   add_foreign_key "qr_codes", "user_domains"
   add_foreign_key "qr_codes", "users"
   add_foreign_key "user_domains", "users"

@@ -1,0 +1,46 @@
+<div class="columns">
+  <div class="column">
+    <h1 class="title"><%= t('views.api_keys.title') %></h1>
+  </div>
+  <div class="column is-flex is-flex-direction-row-reverse">
+    <%= link_to t('views.api_keys.add_api_key'), new_api_key_path, class: "button is-primary" %>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t('views.api_keys.name') %></th>
+      <th><%= t('views.api_keys.actions') %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @api_keys.each do |api_key| %>
+      <tr class="table-row">
+        <td><%= api_key.name %></td>
+        <td>
+          <div class="buttons">
+            <div class="popover is-popover-bottom is-not-popover-hover">
+              <%= button_tag class: "button is-primary popover-trigger",
+                             data: {
+                              controller: "clipboard",
+                              action: "click->clipboard#handleClick",
+                              content: api_key.secret
+                            } do %>
+                <span class="icon">
+                  <i class="fas fa-copy"></i>
+                </span>
+                <span><%= t('views.api_keys.copy') %></span>
+              <% end %>
+              <div class="popover-content">
+                <%= t('views.api_keys.copied') %>
+              </div>
+            </div>
+            <%= link_to t('views.api_keys.destroy'), api_key, class: 'button is-danger', method: :delete, data: { confirm: t('views.api_keys.confirm_destroy') } %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

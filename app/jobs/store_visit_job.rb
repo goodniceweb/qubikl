@@ -1,9 +1,14 @@
 class StoreVisitJob < ApplicationJob
   queue_as :default
 
-  IPDB = MaxMind::GeoIP2::Reader.new(
-    database: Rails.root.join('vendor', 'data', 'GeoLite2-Country.mmdb').to_s
-  )
+  IPDB = self.setup_map_data
+  
+  def self.setup_map_data
+    file_path = Rails.root.join('vendor', 'data', 'GeoLite2-Country.mmdb')
+    return unless File.exist?(file_path)
+
+    MaxMind::GeoIP2::Reader.new(database: file_path.to_s)
+  end
 
   def perform(qr_code_id, visitor_ip, user_agent_string, referrer)
     qr_code = QRCode.find_by(id: qr_code_id)

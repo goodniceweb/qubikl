@@ -306,6 +306,9 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    sqlite3 (1.6.9-aarch64-linux)
+    sqlite3 (1.6.9-arm64-darwin)
+    sqlite3 (1.6.9-x86_64-linux)
     ssrf_filter (1.1.2)
     stimulus-rails (1.2.2)
       railties (>= 6.0.0)
@@ -371,6 +374,7 @@ DEPENDENCIES
   selenium-webdriver
   sidekiq
   spring
+  sqlite3
   stimulus-rails
   swagger-blocks
   swagger-ui_rails

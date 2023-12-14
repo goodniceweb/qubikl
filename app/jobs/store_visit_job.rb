@@ -1,8 +1,8 @@
 class StoreVisitJob < ApplicationJob
   queue_as :default
 
-  IPDB = self.setup_map_data
-  
+  IPDB = setup_map_data
+
   def self.setup_map_data
     file_path = Rails.root.join('vendor', 'data', 'GeoLite2-Country.mmdb')
     return unless File.exist?(file_path)

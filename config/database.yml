@@ -1,25 +1,28 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: localhost
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
+dev: &dev
+  host: localhost
+
 development:
   <<: *default
-  database: qr_code_generator_development
+  <<: *dev
+  database: qubikl_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: qr_code_generator_test
+  <<: *dev
+  database: qubikl_test
 
 production:
   <<: *default
-  adapter: sqlite3
-  host: <%= ENV.fetch("QR_CODE_GENERATOR_DATABASE_HOST", 'localhost') %>
-  database: <%= ENV.fetch("QR_CODE_GENERATOR_DATABASE_NAME", 'qr_code_generator_production') %>
-  username: <%= ENV.fetch("QR_CODE_GENERATOR_DATABASE_USER", 'qr_code_generator') %>
-  password: <%= ENV["QR_CODE_GENERATOR_DATABASE_PASSWORD"] %>
+  host: <%= ENV.fetch("QUBIKL_DATABASE_HOST", 'localhost') %>
+  database: <%= ENV.fetch("QUBIKL_DATABASE_NAME", 'qubikl_production') %>
+  username: <%= ENV.fetch("QUBIKL_DATABASE_USER", 'qubikl') %>
+  password: <%= ENV["QUBIKL_DATABASE_PASSWORD"] %>

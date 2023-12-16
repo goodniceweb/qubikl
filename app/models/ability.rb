@@ -13,6 +13,9 @@ class Ability
       # Allow users to manage only their own user domains
       can :manage, UserDomain, user_id: user.id
 
+      # Allow users to manage only their own user domains
+      can :manage, APIKey, user_id: user.id
+
       # Allow users to manage only their own user record
       can :manage, User, id: user.id
     end

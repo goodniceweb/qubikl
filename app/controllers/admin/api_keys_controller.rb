@@ -1,7 +1,7 @@
 module Admin
   class APIKeysController < ::Admin::BaseController
     before_action :set_api_key, only: [:show, :edit, :update, :destroy]
-    load_and_authorize_resource
+    load_and_authorize_resource class: APIKey
 
     # GET /api_keys
     def index

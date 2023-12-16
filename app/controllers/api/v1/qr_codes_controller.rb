@@ -11,16 +11,18 @@ class API::V1::QRCodesController < ActionController::API
   end
 
   def create
-    post = Post.new(params[:post])
+    qr_code = QRCode.new(qr_code_params)
 
-    if post.save
-      render jsonapi: post
+    if qr_code.save
+      render jsonapi: qr_code
     else
-      render jsonapi_errors: post.errors
+      render jsonapi_errors: qr_code.errors
     end
   end
 
   private
+
+  attr_reader :active_user
 
   def authenticate!
     unless valid_token?
@@ -37,7 +39,11 @@ class API::V1::QRCodesController < ActionController::API
     @active_user = api_key.user
   end
 
-  def active_user
-    @active_user
+  def qr_code_params
+    params[:qr_code][:user_id] = @active_user.id
+    domain = params[:qr_code][:domain]
+    user_domain = UserDomain.find_by(user_id: current_user.id, name: domain)
+    params[:qr_code][:user_domain_id] = user_domain.id if user_domain.present?
+    params.fetch(:qr_code, {}).permit(:destination, :domain, :user_id, :user_domain_id)
   end
 end

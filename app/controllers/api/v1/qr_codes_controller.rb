@@ -42,7 +42,7 @@ class API::V1::QRCodesController < ActionController::API
   def qr_code_params
     params[:qr_code][:user_id] = @active_user.id
     domain = params[:qr_code][:domain]
-    user_domain = UserDomain.find_by(user_id: current_user.id, name: domain)
+    user_domain = UserDomain.find_by(user_id: @active_user.id, name: domain)
     params[:qr_code][:user_domain_id] = user_domain.id if user_domain.present?
     params.fetch(:qr_code, {}).permit(:destination, :domain, :user_id, :user_domain_id)
   end

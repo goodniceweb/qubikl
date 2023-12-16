@@ -11,7 +11,7 @@ ENV QUBIKL_DATABASE_PASSWORD=qubikl
 ENV NODE_OPTIONS=--openssl-legacy-provider
 
 # Install dependencies
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
+RUN apt-get update -qq && apt-get install -y postgresql-client curl
 # RUN apt-get update -qq && apt-get install -y postgresql-client curl && \
 #     curl -sL https://deb.nodesource.com/setup_lts.x | bash - && \
 #     apt-get install -y nodejs && \

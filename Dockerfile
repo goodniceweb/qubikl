@@ -33,17 +33,11 @@ USER qubikl
 WORKDIR /home/qubikl/myapp
 
 # Add the Gemfile and Gemfile.lock
-ADD --chown=qubikl:qubikl package.json /home/qubikl/myapp/package.json
-ADD --chown=qubikl:qubikl yarn.lock /home/qubikl/myapp/yarn.lock
 ADD --chown=qubikl:qubikl Gemfile /home/qubikl/myapp/Gemfile
 ADD --chown=qubikl:qubikl Gemfile.lock /home/qubikl/myapp/Gemfile.lock
 
 # Install gems
 RUN bundle install
-
-RUN rm -rf /home/qubikl/myapp/node_modules
-# Install js dependencies
-RUN yarn install
 
 # Mount the application code as a volume
 VOLUME /home/qubikl/myapp

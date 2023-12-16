@@ -17,7 +17,8 @@ RUN apt-get update -qq && apt-get install -y postgresql-client curl && \
     apt-get install -y nodejs && \
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-    apt-get update && apt-get install yarn
+    apt-get update && apt-get install yarn && \
+    yarn global add webpack
 
 # Create a group and user
 RUN groupadd -r qubikl && useradd -r -g qubikl -m qubikl

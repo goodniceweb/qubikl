@@ -22,6 +22,8 @@ services:
       - .:/home/qubikl/myapp
     ports:
       - "3001:3001"
+    networks:
+      - nginx-proxy
     depends_on:
       - db
     environment:
@@ -33,3 +35,7 @@ services:
       - QUBIKL_DATABASE_NAME=qubikl_production
       - QUBIKL_DATABASE_USER=qubikl
       - QUBIKL_DATABASE_PASSWORD=qubikl
+
+networks:
+  nginx-proxy:
+    external: true

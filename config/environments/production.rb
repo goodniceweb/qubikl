@@ -114,5 +114,4 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 end
 
-Rails.application.routes.default_url_options[:host] = "bot.goodniceweb.me"
-Rails.application.routes.default_url_options[:port] = 3001
+Rails.application.routes.default_url_options[:host] = "qubikl.com"

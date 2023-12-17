@@ -4,6 +4,8 @@ services:
     image: postgres
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
+    networks:
+      - qubikl
     environment:
       - POSTGRES_DB=qubikl_production
       - POSTGRES_USER=qubikl
@@ -23,6 +25,7 @@ services:
     ports:
       - "3001:3001"
     networks:
+      - qubikl
       - nginx-proxy
     depends_on:
       - db
@@ -37,5 +40,6 @@ services:
       - QUBIKL_DATABASE_PASSWORD=qubikl
 
 networks:
+  qubikl:
   nginx-proxy:
     external: true
